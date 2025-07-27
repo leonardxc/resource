@@ -1,9 +1,161 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" version="28.0.7">
   <diagram name="Page-1" id="v7febAZ1-ew1I5EjixCc">
-    <mxGraphModel>
+    <mxGraphModel dx="1161" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-31" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="200" width="840" height="820" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-46" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="720" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="640" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;客户端层&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="388" y="240" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-4" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Bazel&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="373" y="275" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-7" value="&lt;font&gt;兼容REAPI的&lt;br&gt;构建工具&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="485" y="275" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="640" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-9" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;前端服务集群（多节点负载均衡）&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="262" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-10" target="zgti9Vidsna3bLiAcMZ7-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="203" y="500" />
+              <mxPoint x="426" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-10" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Frontend #1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="430" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-11" target="zgti9Vidsna3bLiAcMZ7-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="363" y="500" />
+              <mxPoint x="426" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-11" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Frontend #2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="430" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-12" target="zgti9Vidsna3bLiAcMZ7-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="500" />
+              <mxPoint x="426" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-12" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Frontend #n&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="472.5" y="430" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-13" value="使用gRPC服务&lt;br&gt;负责任务解析" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="622" y="430" width="108" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-14" target="zgti9Vidsna3bLiAcMZ7-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="520" width="640" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-15" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;任务队列集群&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370.5" y="520" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-16" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;font style=&quot;&quot;&gt;优先级队列&lt;br&gt;&lt;font style=&quot;&quot;&gt;- P0构建分区 -&amp;gt;任务1 -&amp;gt; 任务2 -&amp;gt; ...&lt;br&gt;- P1测试分区&amp;nbsp;-&amp;gt;任务1 -&amp;gt; 任务2 -&amp;gt; ...&lt;br&gt;- P2文档分区&lt;/font&gt;&lt;/font&gt;&amp;nbsp;-&amp;gt;任务1 -&amp;gt; 任务2 -&amp;gt; ...&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="264" y="550" width="322.5" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="670" width="640" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-21" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;调度器集群&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="680" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-22" target="zgti9Vidsna3bLiAcMZ7-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-22" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Scheduler #1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="710" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.471;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-23" target="zgti9Vidsna3bLiAcMZ7-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-23" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Scheduler&amp;nbsp;#2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="710" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-24" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Scheduler&amp;nbsp;#n&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="472.5" y="710" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-25" value="负责资源监控&lt;br&gt;负责任务分配" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="630" y="715" width="108" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-26" target="zgti9Vidsna3bLiAcMZ7-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="203" y="860" />
+              <mxPoint x="280" y="860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-26" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;nbsp; 节点池 #1&lt;br&gt;&amp;nbsp;- 通用构建任务&lt;br&gt;&amp;nbsp;- 100节点&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="135" y="780" width="135" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="278.75" y="880" as="targetPoint" />
+            <mxPoint x="365.00333333333333" y="850" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="364.75" y="860" />
+              <mxPoint x="279.75" y="860" />
+              <mxPoint x="279.75" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-27" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;nbsp; 节点池 #2&lt;br&gt;&amp;nbsp;- 测试任务&lt;br&gt;&amp;nbsp;- 50节点&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="302.5" y="780" width="127.5" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-28" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;nbsp; 节点池 #n&lt;br&gt;&amp;nbsp;- 资源密集型任务&lt;br&gt;&amp;nbsp;- 50节点&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="465" y="780" width="125" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-29" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;nbsp;动作缓存集群（AC）&lt;br&gt;&amp;nbsp;- Redis集群&lt;br&gt;&amp;nbsp;- 持久化&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="880" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-30" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;nbsp;内容寻址存储集群（CAS）&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="463" y="880" width="187" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-32" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="660" as="sourcePoint" />
+            <mxPoint x="440" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.479;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-24" target="zgti9Vidsna3bLiAcMZ7-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.346;entryY=0.035;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="zgti9Vidsna3bLiAcMZ7-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="527.3980694980695" y="846.85" as="sourcePoint" />
+            <mxPoint x="527.602" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zgti9Vidsna3bLiAcMZ7-47" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;编译集群&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="90" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
