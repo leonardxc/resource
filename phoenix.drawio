@@ -1,11 +1,52 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0" version="28.2.5">
   <diagram name="Page-1" id="LRibeH8UjpHry629PEoa">
-    <mxGraphModel dx="1268" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2118" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="JXqxbnEQnqqlfqZepkSy-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry y="40" width="840" height="640" as="geometry" />
+          <mxGeometry x="-710" y="300" width="840" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-2" value="protocol不同则替换" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-3" value="windows监听&lt;div&gt;error事件&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-4" value="是否支持容灾？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-5" value="是否是支持容灾的标签？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-6" value="是否是不支持域名？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-7" value="查找cdnList中match的错误域名" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-8" value="新增url容灾信息和备用域名" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JXqxbnEQnqqlfqZepkSy-9" target="JXqxbnEQnqqlfqZepkSy-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-12" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JXqxbnEQnqqlfqZepkSy-11">
+          <mxGeometry x="-0.08" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JXqxbnEQnqqlfqZepkSy-9" target="JXqxbnEQnqqlfqZepkSy-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-9" value="retryMap是否包含失败url信息？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="640" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-10" value="获取retryMap中的cdn容灾信息" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JXqxbnEQnqqlfqZepkSy-14" value="获取retries的host信息" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="840" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
