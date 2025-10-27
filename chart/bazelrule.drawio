@@ -1,9 +1,63 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" version="28.2.5">
   <diagram name="Page-1" id="0b0H3EqEhGnTZleInIaP">
-    <mxGraphModel>
+    <mxGraphModel dx="1268" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="40" width="840" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="240" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-3" value="阶段1：加载阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-4" value="加载 xxx.bzl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-5" value="创建 RuleClass" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="160" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-6" value="执行 BUILD 文件" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="210" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-7" value="创建 Rule 对象" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="260" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-9" value="阶段2：分析阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-10" value="创建 RuleContext" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="380" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-11" value="创建 SpawnAction 对象" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="430" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-12" value="注册 Action 到分析环境" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="480" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="240" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-15" value="阶段3：执行阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-16" value="调用 getSpawn()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="600" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-17" value="创建 ActionSpawn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="650" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-18" value="上传下载" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="700" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-19" value="执行命令" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="750" width="220" height="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
