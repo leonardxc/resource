@@ -1,68 +1,146 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" version="28.2.5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" version="28.2.8">
   <diagram name="Page-1" id="0b0H3EqEhGnTZleInIaP">
-    <mxGraphModel dx="1268" dy="892" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1811" dy="1274" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry y="40" width="960" height="1000" as="geometry" />
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry y="40" width="960" height="1040" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0LyeN-a77Tm1VZb8imJI-2" target="0LyeN-a77Tm1VZb8imJI-8">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="0LyeN-a77Tm1VZb8imJI-2" target="0LyeN-a77Tm1VZb8imJI-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="80" width="240" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-3" value="阶段1：加载阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-3" value="阶段1：加载阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="40" y="80" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-4" value="加载 xxx.bzl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-4" value="加载 xxx.bzl" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="110" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-5" value="创建 RuleClass" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-5" value="创建 RuleClass" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="160" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-6" value="执行 BUILD 文件" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-6" value="执行 BUILD 文件" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="210" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-7" value="创建 Rule 对象" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-7" value="创建 Rule 对象" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="260" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0LyeN-a77Tm1VZb8imJI-8" target="0LyeN-a77Tm1VZb8imJI-14">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="0LyeN-a77Tm1VZb8imJI-8" target="0LyeN-a77Tm1VZb8imJI-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="80" width="240" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-9" value="阶段2：分析阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-9" value="阶段2：分析阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="320" y="80" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-10" value="创建 RuleContext" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-10" value="创建 RuleContext" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="110" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-11" value="创建 SpawnAction 对象" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-11" value="创建 SpawnAction 对象" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="160" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-12" value="注册 Action 到分析环境" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-12" value="注册 Action 到分析环境" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="330" y="210" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="600" y="80" width="240" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-15" value="阶段3：执行阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-15" value="阶段3：执行阶段" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="600" y="80" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-16" value="调用 getSpawn()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-16" value="调用 getSpawn()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="610" y="110" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-17" value="创建 ActionSpawn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-17" value="创建 ActionSpawn" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="610" y="160" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-18" value="上传下载" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-18" value="上传下载" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="610" y="210" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="0LyeN-a77Tm1VZb8imJI-19" value="执行命令" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="0LyeN-a77Tm1VZb8imJI-19" value="执行命令" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="610" y="260" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="240" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-2" value="src/manifest_parser.cc::ParseEdge()" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-3" value="解析显式输入" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-4" value="解析隐式输入" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="440" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-5" value="解析 order-only 输入" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="490" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-6" value="i-&amp;gt;Evaluate(env) 展开路径中的变量" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="540" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="240" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-8" value="src/state.cc::AddIn()" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-9" value="获取或创建 Node" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="390" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-10" value="添加到 edge-&amp;gt;inputs_" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="440" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-11" value="CanonicalizePath 规范化路径" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="590" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-12" value="AddIn 将input path放入edge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-15" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.998;exitY=0.264;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.378;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-1" target="e_o8GDGeuQv3dAUnordO-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="480" as="sourcePoint" />
+            <mxPoint x="330" y="430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-16" target="e_o8GDGeuQv3dAUnordO-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-16" value="ninja.cc::real_main()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-18" target="e_o8GDGeuQv3dAUnordO-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-18" value="开始" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-19" target="e_o8GDGeuQv3dAUnordO-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-19" value="parser.&lt;b&gt;Load&lt;/b&gt;&lt;div&gt;(&quot;build.ninja&quot;, &amp;amp;err)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-20" target="e_o8GDGeuQv3dAUnordO-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-20" value="parser.&lt;b&gt;Load&lt;/b&gt;&lt;div&gt;(&quot;build.ninja&quot;, &amp;amp;err)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_o8GDGeuQv3dAUnordO-21" target="e_o8GDGeuQv3dAUnordO-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-21" value="&lt;div&gt;ManifestParser::Parse&lt;/div&gt;&lt;div&gt;(filename,&amp;nbsp; input&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="680" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_o8GDGeuQv3dAUnordO-22" value="ParseEdge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="760" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
