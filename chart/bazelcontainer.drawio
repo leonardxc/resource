@@ -1,9 +1,185 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.3.0">
   <diagram name="Page-1" id="NmlZyASYMn6C1jZWBcqt">
-    <mxGraphModel>
+    <mxGraphModel dx="1907" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="230" width="190" x="-370" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="2520" width="1650" x="-630" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="230" width="390" x="-580" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-3" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;div style=&quot;line-height: 0%;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;platform(&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; name = &quot;docker_image_platform&quot;,&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; constraint_values = [&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 12px; font-weight: 400;&quot;&gt;&amp;nbsp;],&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; exec_properties = {&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;OSFamily&quot;: &quot;Linux&quot;,&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;recycle-runner&quot;: &quot;true&quot;,&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;container-image&quot;: &quot;docker://gcr.io/flame-public/rbe-ubuntu20-04&quot;,&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; },&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;)&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="380" x="-580" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="第1阶段：BUILD文件解析" vertex="1">
+          <mxGeometry height="30" width="160" x="-580" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;PackageFunction.compileBuildFile()&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 读取BUILD文件字节&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp;- StarlarkFile.parse() 解析Starlark语法&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;- Program.compileFile() 编译成可执行程序&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="390" x="-580" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&amp;nbsp;PackageFactory.executeBuildFileImpl()&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 创建Starlark执行环境&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 执行BUILD文件代码&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 调用rule函数&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="390" x="-580" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&amp;nbsp;Rule对象创建&lt;/div&gt;&lt;div&gt;&amp;nbsp;- RuleClass定义了规则类型&lt;/div&gt;&lt;div&gt;&amp;nbsp;- Rule对象存储所有属性值在内部map中&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/div&gt;&lt;div&gt;Rule {&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; name: &quot;foo&quot;&lt;/div&gt;&lt;div&gt;&amp;nbsp; srcs: [&quot;foo.cc&quot;]&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; exec_properties: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;mem&quot;: &quot;12g&quot;,&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;Pool&quot;: &quot;highcpu&quot;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; }&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; ... (其他属性)&amp;nbsp;&lt;/div&gt;&lt;div&gt;}&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="390" x="-580" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="230" width="390" x="-90" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-9" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;div style=&quot;line-height: 0%;&quot;&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 12px; font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 12px; font-weight: 400;&quot;&gt;RuleContext.Builder.build()&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 12px; font-weight: 400;&quot;&gt;&amp;nbsp;- target.getAssociatedRule() → 获取Rule对象&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 12px; font-weight: 400;&quot;&gt;&amp;nbsp;- ConfiguredAttributeMapper.of(rule, ...) → 包装Rule&amp;nbsp;&lt;/span&gt;&lt;/h1&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="380" x="-90" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="第2阶段：Analysis Phase - 创建ConfiguredTarget&amp;nbsp; &amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="300" x="-90" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;ConfiguredAttributeMapper (implements AttributeMap)&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 包装Rule对象&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 处理可配置属性(select)&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;- 提供get/has方法访问属性&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="390" x="-90" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;createExecGroupCollection(attributes)&lt;/div&gt;&lt;div&gt;&amp;nbsp;- attributes.get(&quot;exec_properties&quot;, STRING_DICT)&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;→ 从Rule对象读取exec_properties值&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="390" x="-90" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="PackageFunction&lt;br&gt;compileBuildFile()&lt;br&gt;解析BUILD文件" vertex="1">
+          <mxGeometry height="70" width="160" x="-560" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-370" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-24" edge="1" parent="1" source="JI5R_Lb8VQjQFitcDBOM-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JI5R_Lb8VQjQFitcDBOM-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="build()&lt;br&gt;获取Rule，包装ConfiguredAttributeMapper" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;ActionOwner getActionOwner(String execGroup)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="RuleContext" vertex="1">
+          <mxGeometry height="30" width="80" x="-370" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;createExecGroupCollection()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="490" width="340" x="-120" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="ExecGroupCollection" vertex="1">
+          <mxGeometry height="30" width="130" x="-120" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="380" width="260" x="-120" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Builder" vertex="1">
+          <mxGeometry height="30" width="70" x="-120" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;build()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;computeCombinedExecProperties()&lt;/div&gt;&lt;div&gt;存储properties&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="210" x="-95" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="getExecProperties()" vertex="1">
+          <mxGeometry height="70" width="210" x="-95" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-30" edge="1" parent="1" source="JI5R_Lb8VQjQFitcDBOM-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="JI5R_Lb8VQjQFitcDBOM-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-610" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="SkyframeActionExecutor" vertex="1">
+          <mxGeometry height="30" width="140" x="-610" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;executeAction()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-600" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="510" width="200" x="-370" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="SpawnAction" vertex="1">
+          <mxGeometry height="30" width="110" x="-370" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;execute()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-140" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="SpawnStrategyResolver&lt;br&gt;AbstractSpawnStrategy" vertex="1">
+          <mxGeometry height="30" width="140" x="-140" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;exec()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-120" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="90" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-41" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="RemoteSpawnRunner" vertex="1">
+          <mxGeometry height="30" width="140" x="90" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;exec()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="110" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-610" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="RemoteExecutionService" vertex="1">
+          <mxGeometry height="30" width="160" x="-610" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;buildRemoteAction()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-590" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-390" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-47" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="PlatformUtils" vertex="1">
+          <mxGeometry height="30" width="110" x="-390" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;getPlatformProto()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-370" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="430" width="200" x="-160" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Spawn" vertex="1">
+          <mxGeometry height="30" width="70" x="-160" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;getCombinedExecProperties()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-140" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;lookupCache(action)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-590" y="2100" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;executeRemotely(action, useCachedResult.get(), reporter)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-590" y="2190" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Spawn spawn =&amp;nbsp;getSpawn(action&lt;/div&gt;&lt;div&gt;ExecutionContext)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="1550" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="new ActionSpawn(&lt;div&gt;action=this =&amp;gt;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SpawnAction&lt;/span&gt;&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-350" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="190" x="-370" y="1730" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Builder" vertex="1">
+          <mxGeometry height="30" width="110" x="-370" y="1730" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-59" edge="1" parent="1" source="JI5R_Lb8VQjQFitcDBOM-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="JI5R_Lb8VQjQFitcDBOM-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-390" y="1795" />
+              <mxPoint x="-390" y="1145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;build() 调用&lt;br&gt;context.getActionOwner&lt;/div&gt;&lt;div&gt;(execGroup)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="-355" y="1760" as="geometry" />
+        </mxCell>
+        <mxCell id="JI5R_Lb8VQjQFitcDBOM-60" edge="1" parent="1" source="JI5R_Lb8VQjQFitcDBOM-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JI5R_Lb8VQjQFitcDBOM-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
