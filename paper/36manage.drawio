@@ -1,0 +1,66 @@
+<mxfile host="65bd71144e">
+    <diagram id="sys_admin_uc" name="System Admin Use Case">
+        <mxGraphModel dx="970" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="10" width="880" height="680" as="geometry"/>
+                </mxCell>
+                <mxCell id="boundary" value="系统管理模块" style="swimlane;collapsible=0;whiteSpace=wrap;html=1;startSize=30;fontSize=16;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="220" y="40" width="430" height="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_auth" value="授权访问资源" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="40" y="60" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_verify_token" value="验证身份&lt;div&gt;鉴权凭证&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="275" y="60" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_config" value="配置系统参数" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="40" y="158" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_hot_reload" value="下发热更新指令" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="274" y="158" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_monitor" value="监控系统运行" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="274" y="261" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_metrics" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;核心&lt;/font&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;遥测指标&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="40" y="261" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_auth" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" parent="boundary" source="uc_auth" target="uc_verify_token" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_conf" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" parent="boundary" source="uc_config" target="uc_hot_reload" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_mon" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" parent="boundary" source="uc_metrics" target="uc_monitor" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_admin" value="系统管理员" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="258" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_client" value="编译客户端" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="100" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_monitor" value="&amp;lt;&amp;lt;External System&amp;gt;&amp;gt;&#xa;监控告警平台" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="201" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_client_auth" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="actor_client" target="uc_auth" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_admin_conf" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="actor_admin" target="uc_config" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="140" y="288" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_admin_mon" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="actor_admin" target="uc_metrics" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_plat_mon" value="" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;" parent="1" source="uc_monitor" target="actor_monitor" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

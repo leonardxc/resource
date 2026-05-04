@@ -1,0 +1,148 @@
+<mxfile host="65bd71144e">
+    <diagram id="pebbledb_architecture" name="PebbleDB Architecture">
+        <mxGraphModel dx="970" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="800" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="20" width="840" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="90" width="770" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="title" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;PebbleDB 核心架构与读写数据流图&lt;/font&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="298" y="90" width="255" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="req_write" value="&lt;b&gt;Write 请求&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=2;fontFamily=Helvetica;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="130" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="req_read" value="&lt;b&gt;&lt;font&gt;Read 请求&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontFamily=Helvetica;fontSize=16;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="130" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="layer_mem" value="&lt;b&gt;内存层&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontFamily=Helvetica;verticalAlign=top;spacingTop=10;fontSize=17;align=left;spacingLeft=15;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="200" width="730" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="mem_active" value="&lt;b&gt;&lt;font&gt;Active MemTable&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font&gt;(跳表/内存排序树)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="226" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mem_immutable" value="&lt;b&gt;&lt;font&gt;Immutable MemTable&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font&gt;(只读, 待刷盘)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="328" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="block_cache" value="&lt;b&gt;&lt;font&gt;Block Cache (块缓存)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font&gt;(驻留热点数据块)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="226" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="bloom_filter" value="&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&lt;b&gt;&lt;font&gt;布隆过滤器&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;font&gt;(快速拦截)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="328" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="layer_disk" value="&lt;b&gt;磁盘层&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontFamily=Helvetica;verticalAlign=top;spacingTop=10;fontSize=17;align=left;spacingLeft=15;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="420" width="730" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="wal" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;WAL (预写日志)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;(顺序追加以保证恢复)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="530" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="sst_l0" value="&lt;b&gt;Level 0 SSTable (Static Sorted Table)&lt;/b&gt; - 键范围可能重叠" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="450" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="sst_l1" target="sst_l2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sst_l1" value="&lt;b&gt;Level 1 SSTable&lt;/b&gt; - 全局有序，无重叠" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="530" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="sst_l2" value="&lt;b&gt;Level 2 ... Level N SSTable&lt;/b&gt; - 冷数据下沉" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="610" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_write_wal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" parent="1" source="req_write" target="wal" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="190" y="180"/>
+                            <mxPoint x="150" y="180"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_write_wal" value="&lt;b&gt;1. 顺序追加写入&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontFamily=Helvetica;fontSize=13;" parent="edge_write_wal" vertex="1" connectable="0">
+                    <mxGeometry x="-0.4" relative="1" as="geometry">
+                        <mxPoint y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_write_mem" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" parent="1" source="req_write" target="mem_active" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="270" y="180"/>
+                            <mxPoint x="340" y="180"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_write_mem" value="&lt;b&gt;2. 写入内存树&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontFamily=Helvetica;fontSize=13;" parent="edge_write_mem" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint x="4" y="20" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_mem_imm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="mem_active" target="mem_immutable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_mem_imm" value="容量达阈值转换" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#f8f8f8;fontFamily=Helvetica;fontSize=13;" parent="edge_mem_imm" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_flush" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.18;entryY=0;" parent="1" source="mem_immutable" target="sst_l0" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_flush" value="&lt;b&gt;Flush (后台刷盘)&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=13;" parent="edge_flush" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint x="1" y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_comp1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="sst_l0" target="sst_l1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_comp1" value="Compaction (多路归并/清理过期键)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=13;" parent="edge_comp1" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_comp2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="sst_l1" target="sst_l2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_comp2" value="Compaction (向下层压实)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=13;" parent="edge_comp2" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_read_bc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="req_read" target="block_cache" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_read_bc" value="&lt;b&gt;&lt;font&gt;① 查找 Block Cache&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontFamily=Helvetica;fontSize=13;fontColor=default;" parent="edge_read_bc" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_bc_mem" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" parent="1" source="block_cache" target="mem_active" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_bc_mem" value="&lt;b&gt;&lt;font&gt;② 查 Active/Immutable&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#f8f8f8;fontFamily=Helvetica;fontSize=13;fontColor=default;" parent="edge_bc_mem" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-7" y="-15" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_bc_bloom" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="block_cache" target="bloom_filter" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_bc_bloom" value="&lt;b&gt;&lt;font&gt;③ 内存未命中&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#f8f8f8;fontFamily=Helvetica;fontSize=13;fontColor=default;" parent="edge_bc_bloom" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_bloom_sst" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.82;entryY=0;" parent="1" source="bloom_filter" target="sst_l0" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_bloom_sst" value="&lt;b&gt;&lt;font&gt;④ 过滤通过后读 SSTable&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#FFFFFF;fontFamily=Helvetica;fontSize=13;fontColor=default;" parent="edge_bloom_sst" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

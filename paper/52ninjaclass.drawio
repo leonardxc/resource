@@ -1,0 +1,59 @@
+<mxfile host="65bd71144e">
+    <diagram id="uml_command_runner_native" name="CommandRunner UML Native">
+        <mxGraphModel dx="803" dy="1187" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="yBCQc2EwwErgOADXXrS2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="-70" width="810" height="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="yBCQc2EwwErgOADXXrS2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="-70" width="830" height="610" as="geometry"/>
+                </mxCell>
+                <mxCell id="CR" value="CommandRunner" style="swimlane;collapsible=0;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=middle;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="240" width="430" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="CR_M" value="+ CanRunMore() : size_t &amp;lt;&amp;lt;pure virtual&amp;gt;&amp;gt;&lt;br&gt;+ StartCommand(edge: Edge*) : bool &amp;lt;&amp;lt;pure virtual&amp;gt;&amp;gt;&lt;br&gt;+ WaitForCommand(result: Result*) : bool &amp;lt;&amp;lt;pure virtual&amp;gt;&amp;gt;&lt;br&gt;+ GetActiveEdges() : vector&amp;lt;Edge*&amp;gt;&lt;br&gt;+ Abort() : void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;spacingBottom=5;fontSize=16;" parent="CR" vertex="1">
+                    <mxGeometry y="40" width="430" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="RCR" value="RealCommandRunner" style="swimlane;collapsible=0;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#333333;align=center;verticalAlign=middle;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="280" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="RCR_A" value="- config_&lt;br&gt;- subprocs_&lt;br&gt;- subproc_to_edge" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;spacingBottom=5;fontSize=16;" parent="RCR" vertex="1">
+                    <mxGeometry y="30" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="CCR" value="CloudCommandRunner" style="swimlane;collapsible=0;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#333333;align=center;verticalAlign=middle;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="280" width="410" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="CCR_A" value="- config_: BuildConfig&amp;amp;&lt;br&gt;- remote_procs_: RemoteProcessSet&lt;br&gt;- local_procs_: SubprocessSet&lt;br&gt;- remoteproc_to_edge: map&amp;lt;RemoteProcess*, Edge*&amp;gt;&lt;br&gt;- localproc_to_edge: map&amp;lt;Subprocess*, Edge*&amp;gt;&lt;br&gt;- local_queue_: vector&amp;lt;Edge*&amp;gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;spacingBottom=5;fontSize=16;" parent="CCR" vertex="1">
+                    <mxGeometry y="30" width="410" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_ccr_cr" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=1.5;endArrow=block;endFill=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=16;align=left;" parent="1" source="CCR" target="CR" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="630" y="250"/>
+                            <mxPoint x="450" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_rcr_cr" value="继承" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;strokeWidth=1.5;endArrow=block;endFill=0;exitX=0.5;exitY=0;labelBackgroundColor=#ffffff;fontSize=16;align=left;" parent="1" edge="1">
+                    <mxGeometry x="0.8033" y="15" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="240" y="250"/>
+                            <mxPoint x="455" y="250"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                        <mxPoint x="240" y="280" as="sourcePoint"/>
+                        <mxPoint x="455" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="CR_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#333333;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="239" y="140" width="431" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="CR_S" value="Result { edge: Edge*, status: ExitStatus, output: string }" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;spacingBottom=5;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="239" y="150" width="420" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

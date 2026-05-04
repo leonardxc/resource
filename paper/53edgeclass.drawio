@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="native_uml_remote_spawn" name="Native UML RemoteSpawn">
+        <mxGraphModel dx="776" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="700" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="760" height="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="Edge" value="Edge" style="swimlane;foldable=0;collapsible=0;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="80" width="220" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="Edge_attrs" value="- rule_: Rule*&lt;br&gt;- inputs_: vector&amp;lt;Node*&amp;gt;&lt;br&gt;- outputs_: vector&amp;lt;Node*&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="Edge" vertex="1">
+                    <mxGeometry y="26" width="220" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="Edge_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#333333;fontSize=14;" parent="Edge" vertex="1">
+                    <mxGeometry y="90" width="220" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="Edge_methods" value="+ EvaluateCommand(): string&lt;br&gt;+ rule(): Rule&amp;amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="Edge" vertex="1">
+                    <mxGeometry y="98" width="220" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="BuildConfig" value="BuildConfig" style="swimlane;foldable=0;collapsible=0;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="80" width="240" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="BC_attrs" value="- parallelism: int&lt;br&gt;- cloud_run: bool&lt;br&gt;- rbe_config: ProjectConfig" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="BuildConfig" vertex="1">
+                    <mxGeometry y="26" width="240" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="RemoteSpawn" value="&lt;span style=&quot;font-weight:normal;&quot;&gt;&amp;lt;&amp;lt;RemoteExecutor&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;RemoteSpawn" style="swimlane;foldable=0;collapsible=0;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="300" width="320" height="280" as="geometry">
+                        <mxRectangle x="110" y="300" width="180" height="50" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="RS_attrs" value="- command: string&lt;br&gt;- origin_command: string&lt;br&gt;- arguments: vector&amp;lt;string&amp;gt;&lt;br&gt;- inputs: vector&amp;lt;string&amp;gt;&lt;br&gt;- outputs: vector&amp;lt;string&amp;gt;&lt;br&gt;- edge: Edge*&lt;br&gt;- can_remote: bool&lt;br&gt;&lt;u&gt;- config: const BuildConfig*&lt;/u&gt; &lt;font color=&quot;#888888&quot;&gt;&amp;lt;&amp;lt;static&amp;gt;&amp;gt;&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="RemoteSpawn" vertex="1">
+                    <mxGeometry y="40" width="320" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="RS_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#333333;fontSize=14;" parent="RemoteSpawn" vertex="1">
+                    <mxGeometry y="190" width="320" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="RS_methods" value="&lt;u&gt;+ CreateRemoteSpawn(Edge*): RemoteSpawn*&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ CanExecuteRemotelly(Edge*): bool&lt;/u&gt;&lt;br&gt;+ GetHeaderFiles(): vector&amp;lt;string&amp;gt;&lt;br&gt;+ ConvertAllPathToRelative(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="RemoteSpawn" vertex="1">
+                    <mxGeometry y="198" width="320" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="ProjectConfig" value="ProjectConfig" style="swimlane;foldable=0;collapsible=0;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="300" width="240" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="PC_attrs" value="- cwd: string&lt;br&gt;- project_root: string&lt;br&gt;- grpc_url: string&lt;br&gt;- local_only_rules: set&lt;br&gt;- local_only_fuzzy: set&lt;br&gt;- rbe_properties: map" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;" parent="ProjectConfig" vertex="1">
+                    <mxGeometry y="26" width="240" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_edge_rs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;endArrow=open;endFill=0;strokeColor=#333333;strokeWidth=1.5;fontSize=14;" parent="1" source="Edge" target="RemoteSpawn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_edge_rs_lbl1" value="依赖" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;spacingLeft=5;fontSize=14;" parent="rel_edge_rs" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint x="-20" y="-8" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_bc_pc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;startArrow=diamond;startFill=1;endArrow=none;strokeColor=#333333;strokeWidth=1.5;fontSize=14;" parent="1" source="BuildConfig" target="ProjectConfig" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_bc_pc_lbl1" value="" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;spacingLeft=5;fontSize=14;" parent="rel_bc_pc" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_bc_pc_lbl2" value="组合" style="edgeLabel;html=1;align=left;verticalAlign=bottom;resizable=0;points=[];labelBackgroundColor=default;fontSize=14;" parent="rel_bc_pc" vertex="1" connectable="0">
+                    <mxGeometry x="-0.8" relative="1" as="geometry">
+                        <mxPoint x="-20" y="67" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_rs_bc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;dashed=1;endArrow=open;endFill=0;strokeColor=#333333;strokeWidth=1.5;fontSize=14;" edge="1" parent="1" source="RemoteSpawn" target="BuildConfig">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="470" y="370"/>
+                            <mxPoint x="470" y="125"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_rs_bc_lbl1" value="依赖" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;spacingLeft=5;fontSize=14;" connectable="0" vertex="1" parent="rel_rs_bc">
+                    <mxGeometry x="0.5" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

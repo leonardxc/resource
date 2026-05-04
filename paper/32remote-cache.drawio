@@ -1,0 +1,103 @@
+<mxfile host="65bd71144e">
+    <diagram id="remote_cache_uc" name="Remote Cache Use Case">
+        <mxGraphModel dx="1797" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-70" width="950" height="860" as="geometry"/>
+                </mxCell>
+                <mxCell id="boundary" value="远程缓存模块" style="swimlane;collapsible=0;whiteSpace=wrap;html=1;startSize=30;fontSize=16;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="160" y="92" width="480" height="550" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_store" value="存储构建产物" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="60" y="85" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_retrieve" value="检索构建产物" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="60" y="330" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_query" value="查询缺失产物" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="60" y="170" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_action" value="缓存动作结果" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="60" y="255" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_validate" value="验证缓存完整性" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="300" y="220" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_chunk" value="分块存储大文件" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="280" y="51" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_inline" value="优化小文件内联" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="290" y="100" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_compress" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;压缩存储&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;缓存数据&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="280" y="160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_evict" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;执行采样&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;淘汰策略&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="260" y="300" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_raft" value="管理范围分片与&#xa;元数据一致性" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="230" y="370" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_repair" value="验证迁移&lt;div&gt;数据一致性&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="55" y="455" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext_chunk" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;entryX=0.949;entryY=0.254;entryPerimeter=0;fontSize=13;" parent="boundary" source="uc_chunk" target="uc_store" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext_inline" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=13;" parent="boundary" source="uc_inline" target="uc_store" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext_comp" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=1;fontSize=13;" parent="boundary" source="uc_compress" target="uc_store" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_val" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=13;" parent="boundary" source="uc_action" target="uc_validate" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext_repair" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontSize=13;" parent="boundary" source="uc_repair" target="uc_retrieve" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_client" value="编译客户端" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="160" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_executor" value="缓存节点" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="380" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_sys" value="缓存系统服务" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="442" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_client_store" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;" parent="1" source="actor_client" target="uc_store" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_client_query" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;" parent="1" source="actor_client" target="uc_query" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_client_action" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;" parent="1" source="actor_client" target="uc_action" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_client_ret" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;" parent="1" source="actor_client" target="uc_retrieve" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_exec_store" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;strokeColor=#000000;" edge="1" parent="1" source="actor_executor" target="uc_store">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_exec_action" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;strokeColor=#000000;" edge="1" parent="1" source="actor_executor" target="uc_action">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_exec_retrieve" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;exitX=1;exitY=0.3333;exitPerimeter=0;fontSize=13;strokeColor=#000000;" edge="1" parent="1" source="actor_executor" target="uc_retrieve">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_sys_evict" value="" style="endArrow=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.3333;entryPerimeter=0;fontSize=13;" parent="1" source="uc_evict" target="actor_sys" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_sys_raft" value="" style="endArrow=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.3333;entryPerimeter=0;fontSize=13;" parent="1" source="uc_raft" target="actor_sys" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_sys_repair" value="" style="endArrow=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.3333;entryPerimeter=0;fontSize=13;" parent="1" source="uc_repair" target="actor_sys" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

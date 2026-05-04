@@ -1,0 +1,302 @@
+<mxfile host="app.diagrams.net" modified="2026-03-08" type="device">
+  <diagram name="双池混合调度时序图" id="seq-dual-pool">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ======== 参与者 ======== -->
+        <mxCell id="p1" value="&lt;b&gt;Builder&lt;/b&gt;&lt;br&gt;主循环" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="120" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;CloudCommand&lt;/b&gt;&lt;br&gt;&lt;b&gt;Runner&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="210" y="30" width="130" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;RemoteSpawn&lt;/b&gt;&lt;br&gt;任务分类器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="390" y="30" width="120" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;RemoteProcess&lt;/b&gt;&lt;br&gt;&lt;b&gt;Set&lt;/b&gt; (远程池)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="560" y="30" width="130" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="&lt;b&gt;Execution&lt;/b&gt;&lt;br&gt;&lt;b&gt;Context&lt;/b&gt;&lt;br&gt;(工作线程)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="740" y="30" width="120" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p6" value="&lt;b&gt;REAPI&lt;/b&gt;&lt;br&gt;远程服务" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="910" y="30" width="120" height="960" as="geometry"/>
+        </mxCell>
+        <mxCell id="p7" value="&lt;b&gt;SubprocessSet&lt;/b&gt;&lt;br&gt;(本地池)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=40;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="30" width="120" height="960" as="geometry"/>
+        </mxCell>
+
+        <!-- ======== 阶段一：任务创建与分类 ======== -->
+        <mxCell id="label1" value="&lt;b&gt;阶段一：任务创建与分类&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="5" y="78" width="170" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 1. StartCommand -->
+        <mxCell id="m1" value="1: StartCommand(edge)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="105" as="sourcePoint"/>
+            <mxPoint x="270" y="105" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 2. CreateRemoteSpawn -->
+        <mxCell id="m2" value="2: CreateRemoteSpawn(edge)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="140" as="sourcePoint"/>
+            <mxPoint x="445" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 3. CanExecuteRemotelly (self) -->
+        <mxCell id="m3" value="3: CanExecuteRemotelly()&#xa;  黑名单→模糊黑名单→白名单" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="455" y="170" as="sourcePoint"/>
+            <mxPoint x="455" y="200" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="530" y="170"/>
+              <mxPoint x="530" y="200"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 4. return spawn -->
+        <mxCell id="m4" value="4: return spawn{can_remote}" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="445" y="225" as="sourcePoint"/>
+            <mxPoint x="280" y="225" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ======== ALT框: can_remote == true ======== -->
+        <mxCell id="alt1" value="" style="shape=umlFrame;whiteSpace=wrap;html=1;width=90;height=20;boundedLbl=1;verticalAlign=bottom;align=left;spacingLeft=5;dashed=1;strokeColor=#82b366;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="170" y="245" width="800" height="450" as="geometry"/>
+        </mxCell>
+        <mxCell id="alt1_label" value="&lt;b&gt;alt&lt;/b&gt; [can_remote == true]" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#d5e8d4;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="172" y="247" width="140" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="label2" value="&lt;b&gt;阶段二：远程执行路径&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="5" y="255" width="160" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 5. Add(spawn) -->
+        <mxCell id="m5" value="5: Add(spawn)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="285" as="sourcePoint"/>
+            <mxPoint x="620" y="285" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 6. pipe() + Start -->
+        <mxCell id="m6" value="6: pipe()创建管道fd&#xa;   RemoteProcess::Start()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="315" as="sourcePoint"/>
+            <mxPoint x="630" y="350" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="700" y="315"/>
+              <mxPoint x="700" y="350"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 7. AddTask to ThreadPool -->
+        <mxCell id="m7" value="7: ThreadPool.AddTask(WorkThread)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="375" as="sourcePoint"/>
+            <mxPoint x="795" y="375" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 异步分界线 -->
+        <mxCell id="async_note" value="── 以下在工作线程中异步执行 ──" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="610" y="390" width="200" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 8. BuildAction (self) -->
+        <mxCell id="m8" value="8: BuildAction()&#xa;   BuildMerkleTree()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="415" as="sourcePoint"/>
+            <mxPoint x="805" y="445" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="875" y="415"/>
+              <mxPoint x="875" y="445"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 9. FetchFromActionCache -->
+        <mxCell id="m9" value="9: FetchFromActionCache(action_digest)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="470" as="sourcePoint"/>
+            <mxPoint x="965" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 10. cache miss -->
+        <mxCell id="m10" value="10: NOT_FOUND" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="965" y="498" as="sourcePoint"/>
+            <mxPoint x="805" y="498" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 11. UploadBlobs -->
+        <mxCell id="m11" value="11: FindMissingBlobs + UploadBlobs" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="525" as="sourcePoint"/>
+            <mxPoint x="965" y="525" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 12. ExecuteAction -->
+        <mxCell id="m12" value="12: ExecuteAction(action_digest)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="555" as="sourcePoint"/>
+            <mxPoint x="965" y="555" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 13. ActionResult -->
+        <mxCell id="m13" value="13: ActionResult (via Operation流)" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="965" y="583" as="sourcePoint"/>
+            <mxPoint x="805" y="583" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 14. DownloadOutputs -->
+        <mxCell id="m14" value="14: DownloadOutputs(output digests)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="610" as="sourcePoint"/>
+            <mxPoint x="965" y="610" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 15. 输出文件 -->
+        <mxCell id="m15" value="15: 输出文件数据" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="965" y="635" as="sourcePoint"/>
+            <mxPoint x="805" y="635" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 16. write(fd) -->
+        <mxCell id="m16" value="16: write(fd, stdout/stderr)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="660" as="sourcePoint"/>
+            <mxPoint x="630" y="660" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 17. notify -->
+        <mxCell id="m17" value="17: exit_code_set_=true, cv_.notify_one()" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="688" as="sourcePoint"/>
+            <mxPoint x="630" y="688" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ======== ALT框: can_remote == false ======== -->
+        <mxCell id="alt2" value="" style="shape=umlFrame;whiteSpace=wrap;html=1;width=90;height=20;boundedLbl=1;verticalAlign=bottom;align=left;spacingLeft=5;dashed=1;strokeColor=#b85450;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="170" y="710" width="980" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="alt2_label" value="&lt;b&gt;alt&lt;/b&gt; [can_remote == false]" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#f8cecc;fontSize=10;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="172" y="712" width="145" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 18. local Start -->
+        <mxCell id="m18" value="18: Start(command) 或 local_queue_.push()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="748" as="sourcePoint"/>
+            <mxPoint x="1135" y="748" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 19. local complete -->
+        <mxCell id="m19" value="19: 子进程退出(SIGCHLD)" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1135" y="778" as="sourcePoint"/>
+            <mxPoint x="280" y="778" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ======== 阶段三：结果收集 ======== -->
+        <mxCell id="label3" value="&lt;b&gt;阶段三：统一结果收集&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="5" y="808" width="160" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 20. WaitForCommand -->
+        <mxCell id="m20" value="20: WaitForCommand()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="840" as="sourcePoint"/>
+            <mxPoint x="270" y="840" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 21. DoWork -->
+        <mxCell id="m21" value="21: DoWork(&amp;local_procs_)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="868" as="sourcePoint"/>
+            <mxPoint x="620" y="868" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 22. ppoll (self) -->
+        <mxCell id="m22" value="22: ppoll/pselect&#xa;    (remote_fds ∪ local_fds)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="893" as="sourcePoint"/>
+            <mxPoint x="630" y="923" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="720" y="893"/>
+              <mxPoint x="720" y="923"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 23. OnPipeReady (self) -->
+        <mxCell id="m23" value="23: OnPipeReady() → Finish()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;fontSize=10;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="930" as="sourcePoint"/>
+            <mxPoint x="630" y="955" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="720" y="930"/>
+              <mxPoint x="720" y="955"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 24. NextFinished -->
+        <mxCell id="m24" value="24: NextFinished() → RemoteProcess" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="968" as="sourcePoint"/>
+            <mxPoint x="280" y="968" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 25. Result -->
+        <mxCell id="m25" value="25: Result{exit_code, output}" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;curved=0;rounded=0;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="990" as="sourcePoint"/>
+            <mxPoint x="90" y="990" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ======== 注释 ======== -->
+        <mxCell id="note1" value="远程池容量:&#xa;parallelism × 3&#xa;(RemoteBuildThreadPool)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note2" value="本地池容量:&#xa;parallelism (-j N)&#xa;溢出 → local_queue_" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="100" width="145" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note3" value="统一I/O多路复用:&#xa;将远程pipe fd与本地&#xa;子进程fd合并监听" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="740" y="858" width="155" height="55" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

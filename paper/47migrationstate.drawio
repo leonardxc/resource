@@ -1,0 +1,110 @@
+<mxfile host="65bd71144e">
+    <diagram id="migration_cache_state" name="MigrationCache State Machine">
+        <mxGraphModel dx="1428" dy="2170" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="44" y="-40" width="740" height="1045" as="geometry"/>
+                </mxCell>
+                <mxCell id="title" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;图 4-8 MigrationCache 集群级四阶段热迁移状态机&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="30" width="480" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="start" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#000000;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="110" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s1" value="&lt;b&gt;阶段1: 仅旧集群 (SRC_ONLY)&lt;/b&gt;&lt;br&gt;读旧缓存&lt;br&gt;写旧缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;arcSize=10;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="170" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2_comp" value="&lt;b&gt;阶段2: 旧集群主，新集群辅 (SRC_PRIMARY)&lt;/b&gt;" style="swimlane;html=1;horizontal=1;startSize=30;rounded=1;arcSize=5;fillColor=#f8f9fa;strokeColor=#666666;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="300" width="400" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2r" value="读: 先旧集群, miss时回退新集群" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s2_comp" vertex="1">
+                    <mxGeometry x="40" y="40" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2w" value="写: 双写(旧集群+新集群)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s2_comp" vertex="1">
+                    <mxGeometry x="40" y="80" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2c" value="后台: Worker池限速复制 (旧集群→新集群)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s2_comp" vertex="1">
+                    <mxGeometry x="40" y="120" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2v" value="抽样双读: 校验数据一致性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s2_comp" vertex="1">
+                    <mxGeometry x="40" y="160" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3_comp" value="&lt;b&gt;阶段3: 新集群主，旧集群辅 (DST_PRIMARY)&lt;/b&gt;" style="swimlane;html=1;horizontal=1;startSize=30;rounded=1;arcSize=5;fillColor=#f8f9fa;strokeColor=#666666;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="560" width="400" height="190" as="geometry">
+                        <mxRectangle x="200" y="560" width="360" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="s3r" value="读: 先新集群, miss时回退旧集群" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s3_comp" vertex="1">
+                    <mxGeometry x="40" y="50" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3w" value="写: 双写(新集群+旧集群)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s3_comp" vertex="1">
+                    <mxGeometry x="40" y="90" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3c" value="后台: 继续复制, 校验一致性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=16;" parent="s3_comp" vertex="1">
+                    <mxGeometry x="40" y="130" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="s4" value="&lt;b&gt;阶段4: 仅新集群 (DST_ONLY)&lt;/b&gt;&lt;br&gt;读新缓存集群&lt;br&gt;写新缓存集群" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;arcSize=10;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="810" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="end" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="920" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_start_s1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=0.498;exitY=0.847;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="start" target="s1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="400" y="150"/>
+                            <mxPoint x="400" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s1_s2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;fontSize=16;" parent="1" source="s1" target="s2_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s1_s2_lbl" value="启动迁移&lt;br&gt;(配置变更)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontSize=16;" parent="e_s1_s2" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-3" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s2_s3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;fontSize=16;" parent="1" source="s2_comp" target="s3_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s2_s3_lbl" value="复制进度 &amp;gt; 阈值&lt;br&gt;且双读一致性达标" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontSize=16;" parent="e_s2_s3" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s3_s2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d84315;strokeWidth=1.5;dashed=1;fontColor=#d84315;fontSize=16;" parent="1" source="s3_comp" target="s2_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="660" y="725"/>
+                            <mxPoint x="660" y="425"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s3_s2_lbl" value="异常自动回退&lt;br&gt;(新集群错误率 &amp;gt; 阈值)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontColor=#d84315;fontSize=16;" parent="e_s3_s2" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-45" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s3_s4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;fontSize=16;" parent="1" source="s3_comp" target="s4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s3_s4_lbl" value="复制完成&lt;br&gt;且新集群稳定运行" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontSize=16;" parent="e_s3_s4" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_s4_end" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;fontSize=16;" parent="1" source="s4" target="end" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s4_end_lbl" value="下线旧集群节点" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontSize=16;" parent="e_s4_end" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint y="-5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

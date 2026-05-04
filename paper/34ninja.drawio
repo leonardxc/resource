@@ -1,0 +1,81 @@
+<mxfile host="65bd71144e">
+    <diagram id="ninja_client_uc" name="Ninja Client Use Case">
+        <mxGraphModel dx="1758" dy="681" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-600" y="40" width="880" height="970" as="geometry"/>
+                </mxCell>
+                <mxCell id="boundary" value="Ninja 构建客户端模块" style="swimlane;whiteSpace=wrap;html=1;startSize=30;fontSize=16;fontStyle=1;container=0;" parent="1" vertex="1">
+                    <mxGeometry x="-370" y="80" width="460" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_action" value="构建 REAPI ACTION" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="300" y="380" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_path" value="转换构建路径" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;" parent="boundary" vertex="1">
+                    <mxGeometry x="300" y="280" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_path" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=16;" parent="boundary" source="uc_action" target="uc_path" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_dev" value="构建客户端" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="-490" y="176" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_local_os" value="本地操作系统" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="176" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_remote_exec" value="&amp;lt;&amp;lt;模块&amp;gt;&amp;gt;&lt;br&gt;远程执行模块" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="-490" y="315" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_remote_cache" value="&amp;lt;&amp;lt;模块&amp;gt;&amp;gt;&lt;br&gt;远程缓存模块" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="-490" y="460" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_dev_conf" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="actor_dev" target="uc_config" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-450" y="230" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge_dev_sch" value="" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=16;" parent="1" source="actor_dev" target="uc_schedule" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_sch_local" value="本地并发分流" style="endArrow=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;fontSize=16;" parent="1" source="uc_schedule" target="actor_local_os" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_life_exec" value="" style="endArrow=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;" parent="1" source="uc_lifecycle" target="actor_remote_exec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_life_cache" value="" style="endArrow=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;" parent="1" source="uc_lifecycle" target="actor_remote_cache" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_config" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;管理客户端&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;构建配置&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="-330" y="149" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_extract" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;解析命令&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;提取依赖&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="-70" y="280" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_schedule" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;调度混合&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;执行任务&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="-330" y="265" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_check" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;判定远程&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;执行资格&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="-90" y="149" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uc_lifecycle" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;管理任务&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;生命周期&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="-330" y="460" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_check" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" parent="1" source="uc_schedule" target="uc_check" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext_extract" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.996;entryY=0.56;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;" parent="1" source="uc_extract" target="uc_schedule" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_life" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=16;" parent="1" source="uc_schedule" target="uc_lifecycle" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_action" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;dashed=1;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" parent="1" source="uc_lifecycle" target="uc_action" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

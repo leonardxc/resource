@@ -1,0 +1,190 @@
+<mxfile version="14.6.13">
+  <diagram id="sys_architecture" name="System Layered Architecture">
+    <mxGraphModel dx="1600" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1653" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="layer_client" value="一、 客户端与开发环境层 (Client &amp; Dev Environment)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1040" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="src_code" value="&lt;b&gt;大型工程源码仓库&lt;/b&gt;&lt;br&gt;OHOS / BUILD files / C++" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="layer_client">
+          <mxGeometry x="60" y="20" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="client_ninja" value="&lt;b&gt;Ninja 客户端&lt;/b&gt;&lt;br&gt;(拦截与协议代理)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="layer_client">
+          <mxGeometry x="280" y="20" width="140" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="client_bazel" value="&lt;b&gt;Bazel 客户端&lt;/b&gt;&lt;br&gt;(原生接入)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="layer_client">
+          <mxGeometry x="440" y="20" width="140" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="client_bb" value="&lt;b&gt;BuildBuddy CLI&lt;/b&gt;&lt;br&gt;(管控工具)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="layer_client">
+          <mxGeometry x="600" y="20" width="140" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="client_components" value="&lt;b&gt;客户端核心组件 (Client Components)&lt;/b&gt;&lt;br&gt;分析阶段 (Action Graph) | 执行决策 | 树构建与上传 (Merkle/BEP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;dashed=1;" vertex="1" parent="layer_client">
+          <mxGeometry x="280" y="75" width="460" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="workflow_svc" value="&lt;b&gt;工作流层 (CI/CD)&lt;/b&gt;&lt;br&gt;Git Webhook / YAML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#558b2f;" vertex="1" parent="layer_client">
+          <mxGeometry x="800" y="20" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer_gateway" value="二、 网络与协议网关层 (Network &amp; API Gateway)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="1040" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="net_lb" value="&lt;b&gt;负载均衡与安全&lt;/b&gt;&lt;br&gt;Nginx / HAProxy / TLS 1.3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="layer_gateway">
+          <mxGeometry x="60" y="20" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_reapi" value="&lt;b&gt;REAPI v2 协议族&lt;/b&gt;&lt;br&gt;Execution API | CAS API&lt;br&gt;ActionCache API | ByteStream" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="layer_gateway">
+          <mxGeometry x="280" y="20" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_bep" value="&lt;b&gt;事件协议&lt;/b&gt;&lt;br&gt;BEP API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="layer_gateway">
+          <mxGeometry x="520" y="20" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_auth" value="&lt;b&gt;认证与鉴权中心&lt;/b&gt;&lt;br&gt;AuthZ | Token | 多租户隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c2185b;" vertex="1" parent="layer_gateway">
+          <mxGeometry x="640" y="20" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_rate" value="&lt;b&gt;流量控制&lt;/b&gt;&lt;br&gt;Rate Limit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c2185b;" vertex="1" parent="layer_gateway">
+          <mxGeometry x="830" y="20" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer_core" value="三、 核心服务控制平面 (Core Service Plane)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="1040" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="core_exec" value="&lt;b&gt;Execution Server&lt;/b&gt;&lt;br&gt;执行请求与状态流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#00838f;" vertex="1" parent="layer_core">
+          <mxGeometry x="60" y="20" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="core_ac" value="&lt;b&gt;ActionCache Server&lt;/b&gt;&lt;br&gt;结果缓存查询与校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#00838f;" vertex="1" parent="layer_core">
+          <mxGeometry x="240" y="20" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="core_cas" value="&lt;b&gt;CAS Server&lt;/b&gt;&lt;br&gt;内容寻址与批量更新" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#00838f;" vertex="1" parent="layer_core">
+          <mxGeometry x="420" y="20" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="core_bs" value="&lt;b&gt;ByteStream Server&lt;/b&gt;&lt;br&gt;大文件流式管道" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#00838f;" vertex="1" parent="layer_core">
+          <mxGeometry x="590" y="20" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="core_bes" value="&lt;b&gt;BuildEvent Server&lt;/b&gt;&lt;br&gt;全链路事件追踪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#00838f;" vertex="1" parent="layer_core">
+          <mxGeometry x="760" y="20" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer_exec" value="四 (A). 调度与执行子系统 (Schedule &amp; Execution Subsystem)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="460" width="510" height="420" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="sch_main" value="&lt;b&gt;Scheduler Server (调度中心)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f57f17;" vertex="1" parent="layer_exec">
+          <mxGeometry x="60" y="20" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sch_router" value="&lt;b&gt;智能任务路由&lt;/b&gt;&lt;br&gt;亲和性路由 | 缓存优先&lt;br&gt;多平台分发 (TaskRouter)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f57f17;dashed=1;" vertex="1" parent="layer_exec">
+          <mxGeometry x="60" y="60" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sch_queue" value="&lt;b&gt;队列与租约管理&lt;/b&gt;&lt;br&gt;PriorityQueue (多租户)&lt;br&gt;TaskLeaser (租约) | 资源估算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f57f17;dashed=1;" vertex="1" parent="layer_exec">
+          <mxGeometry x="270" y="60" width="200" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="exec_node" value="&lt;b&gt;Executor (远端执行节点)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe9e7;strokeColor=#d84315;" vertex="1" parent="layer_exec">
+          <mxGeometry x="60" y="160" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_flow" value="&lt;b&gt;沙盒生命周期管理&lt;/b&gt;&lt;br&gt;① 从 CAS 获取依赖 &gt;&gt; ② OverlayFS 挂载工作区 &gt;&gt; ③ 命令执行 &gt;&gt; ④ 上传输出至 CAS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe9e7;strokeColor=#d84315;dashed=1;" vertex="1" parent="layer_exec">
+          <mxGeometry x="60" y="200" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_iso" value="&lt;b&gt;强隔离容器运行时&lt;/b&gt;&lt;br&gt;Docker / OCI / Firecracker / Bare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe9e7;strokeColor=#d84315;dashed=1;" vertex="1" parent="layer_exec">
+          <mxGeometry x="60" y="260" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_pool" value="&lt;b&gt;Runner 池化复用引擎&lt;/b&gt;&lt;br&gt;环境解冻唤醒 | 异步资源回收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe9e7;strokeColor=#d84315;dashed=1;" vertex="1" parent="layer_exec">
+          <mxGeometry x="300" y="260" width="170" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer_cache" value="四 (B). 高可用缓存子系统 (Distributed Cache Subsystem)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="590" y="460" width="510" height="420" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ca_int" value="&lt;b&gt;统一缓存门面 (Cache Interface)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;" vertex="1" parent="layer_cache">
+          <mxGeometry x="60" y="20" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_dist" value="&lt;b&gt;分布式路由层&lt;/b&gt;&lt;br&gt;一致性哈希分布 (100+虚拟节点)&lt;br&gt;Hinted Handoff 故障转移 | 副本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;dashed=1;" vertex="1" parent="layer_cache">
+          <mxGeometry x="60" y="60" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_mig" value="&lt;b&gt;热迁移引擎 (MigrationCache)&lt;/b&gt;&lt;br&gt;四阶段演进状态机&lt;br&gt;异步双写 | 按比例双读回填" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;dashed=1;" vertex="1" parent="layer_cache">
+          <mxGeometry x="290" y="60" width="180" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ca_raft" value="&lt;b&gt;Raft 强一致性底座 (Dragonboat Engine)&lt;/b&gt;&lt;br&gt;Leader 选举机制 | 并发日志复制 | Range 动态分裂 | Lease 租约管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;dashed=1;" vertex="1" parent="layer_cache">
+          <mxGeometry x="60" y="150" width="410" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ca_pebble" value="&lt;b&gt;底层物理存储引擎 (PebbleDB / LSM-Tree)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;" vertex="1" parent="layer_cache">
+          <mxGeometry x="60" y="230" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_opt" value="&lt;b&gt;存储优化特性&lt;/b&gt;&lt;br&gt;[内联存储] 小文件 Value 内联存储&lt;br&gt;[淘汰机制] 采样近似 LRU (无全局锁)&lt;br&gt;[体积压缩] 自动 ZSTD 链路无损压缩" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;dashed=1;align=left;spacingLeft=10;" vertex="1" parent="layer_cache">
+          <mxGeometry x="60" y="270" width="410" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer_infra" value="五、 底层基础设施与可观测性层 (Infrastructure &amp; Observability)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;startSize=40;fillColor=#f8f9fa;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="900" width="1040" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="infra_db" value="&lt;b&gt;持久化存储基座&lt;/b&gt;&lt;br&gt;Redis Cluster (任务队列/状态)&lt;br&gt;MySQL (用户组/调用流)&lt;br&gt;GCS / 本地大容量磁盘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#455a64;" vertex="1" parent="layer_infra">
+          <mxGeometry x="60" y="20" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="infra_obs" value="&lt;b&gt;全链路可观测性 (Observability)&lt;/b&gt;&lt;br&gt;Prometheus 指标打点与抓取&lt;br&gt;Grafana 大盘告警&lt;br&gt;OpenTelemetry 追踪 | 结构化日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#455a64;" vertex="1" parent="layer_infra">
+          <mxGeometry x="300" y="20" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="infra_search" value="&lt;b&gt;源码级搜索 (Code Search)&lt;/b&gt;&lt;br&gt;Kythe 语法语义索引树&lt;br&gt;全文检索服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#512da8;" vertex="1" parent="layer_infra">
+          <mxGeometry x="560" y="20" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="infra_sec" value="&lt;b&gt;安全防线 (Security)&lt;/b&gt;&lt;br&gt;静态数据加密 (Encryption)&lt;br&gt;审计日志 | Secret 管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#455a64;" vertex="1" parent="layer_infra">
+          <mxGeometry x="760" y="20" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_c_to_gw" value="REST/gRPC" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="client_components" target="net_lb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_lb_to_reapi" value="流量分发" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="net_lb" target="gw_reapi">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_gw_to_core" value="解析与鉴权后路由" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="gw_reapi" target="core_exec">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_gw_to_cas" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="gw_reapi" target="core_cas">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_bep_to_bes" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="gw_bep" target="core_bes">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_core_to_sch" value="任务入队派发" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#f57f17;" edge="1" parent="1" source="core_exec" target="sch_main">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_core_to_ca" value="高并发读写穿透" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3f51b5;" edge="1" parent="1" source="core_cas" target="ca_int">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_ac_to_ca" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.1;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3f51b5;" edge="1" parent="1" source="core_ac" target="ca_int">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_sch_to_exec" value="gRPC 认领与心跳" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#d84315;" edge="1" parent="1" source="sch_queue" target="exec_node">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge_exec_to_cache" value="产物上传 / 依赖下载" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3f51b5;dashed=1;" edge="1" parent="1" source="exec_flow" target="ca_int">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_sch_to_redis" value="状态/租约持久化" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;strokeWidth=1;" edge="1" parent="1" source="layer_exec" target="infra_db">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_pebble_to_disk" value="物理落盘" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;strokeWidth=1;" edge="1" parent="1" source="ca_opt" target="infra_db">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_mon_pull" value="Metrics 抓取" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeWidth=1;dashed=1;" edge="1" parent="1" source="infra_obs" target="layer_cache">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

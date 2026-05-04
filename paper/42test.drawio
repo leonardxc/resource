@@ -1,0 +1,831 @@
+<mxfile host="65bd71144e">
+    <diagram name="BuildBuddy UML组件图" id="comp-diagram">
+        <mxGraphModel dx="1156" dy="1610" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="4000" pageHeight="5000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="g2" value="&lt;b&gt;第2层: 前端应用层 (Web UI)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="380" width="2660" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="g2b" value="企业前端 (enterprise/app/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=11;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="47.5" y="410" width="840" height="205" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_box" value="&lt;b&gt;图例 Legend&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;verticalAlign=top;fontSize=13;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="20" width="560" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg1" value="第三方组件 (Third-party)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="2740" y="55" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg2" value="自研组件 (Self-developed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="2740" y="95" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg3" value="自研核心/二次开发 (Key Custom)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2920" y="55" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg4" value="设计说明注释 (Annotation)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="2920" y="90" width="200" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g1" value="&lt;b&gt;第1层: Bazel 客户端与源码层&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="160" width="2660" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="c1" value="&lt;b&gt;OHOS 源码仓库&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="200" width="165" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c2" value="&lt;b&gt;Ninja 构建工具&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="200" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c3" value="&lt;b&gt;项目配置&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="405" y="200" width="150" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_browser" value="&lt;b&gt;Web 浏览器&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="575" y="200" width="130" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="n1" value="&lt;b&gt;[设计思路] Sidecar本地代理&lt;/b&gt;&#xa;在客户端本地运行代理进程，拦截并缓存&#xa;BES事件和CAS请求。减少与远程服务器的&#xa;网络往返延迟，支持断线续传。实现本地&#xa;缓存层(L0)，大幅提升构建事件上报和&#xa;远程缓存的响应速度。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="170" width="280" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="c11" value="App Root&#xa;(app/root/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="62.5" y="440" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c12" value="Invocation View&#xa;(app/invocation/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="440" width="119" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c18" value="Router&#xa;(app/router/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="62.5" y="490" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c21" value="Executor管理&#xa;(executors/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="440" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c23" value="CodeSearch UI&#xa;(codesearch/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="452.5" y="493.5" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c26" value="Targets&#xa;(targets/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="327" y="440" width="110" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c28" value="Settings&#xa;(settings/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="192.5" y="490" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c29" value="Usage/Quota&#xa;(usage/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="322.5" y="490" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g3" value="&lt;b&gt;第3层: API 协议与网关层&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="650" width="2660" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="c41" value="&lt;b&gt;Build Event Protocol&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="690" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c42" value="&lt;b&gt;Remote Execution&amp;nbsp;&lt;/b&gt;API v2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="690" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c43" value="&lt;b&gt;Remote Cache API&lt;/b&gt;&#xa;(CAS/AC/ByteStream)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="690" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c44" value="&lt;b&gt;Remote Asset API&lt;/b&gt;&#xa;(Fetch/Push)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="605" y="690" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c48" value="&lt;b&gt;gRPC&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="745" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c49" value="&lt;b&gt;Protocol Buffers&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="745" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c50" value="&lt;b&gt;gRPC-Web&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="745" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="c51" value="&lt;b&gt;gRPC Proxy&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="605" y="745" width="170" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="g4" value="&lt;b&gt;第4层: 核心业务服务层&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="850" width="2660" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="g4a" value="构建事件协议子系统 (build_event_protocol/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="880" width="680" height="275" as="geometry"/>
+                </mxCell>
+                <mxCell id="c55" value="&lt;b&gt;Build Event Server&lt;/b&gt;&#xa;(build_event_server/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="910" width="155" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c56" value="&lt;b&gt;Build Event Handler&lt;/b&gt;&#xa;(build_event_handler/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="910" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c62" value="Status Reporter&#xa;(build_status_reporter/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="910" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c64b" value="EventLog&#xa;(server/eventlog/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="395" y="911" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c64c" value="Target History&#xa;(server/target/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="960" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g4b" value="远程缓存子系统 (remote_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="880" width="790" height="275" as="geometry"/>
+                </mxCell>
+                <mxCell id="c65" value="&lt;b&gt;CAS Server&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="745" y="910" width="175" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c66" value="&lt;b&gt;Action Cache Server&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="935" y="910" width="170" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c67" value="&lt;b&gt;ByteStream Server&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1120" y="910" width="170" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c69" value="&lt;b&gt;Hit Tracker&lt;/b&gt;&#xa;(hit_tracker/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="745" y="960" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c71" value="Digest/Resource" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1035" y="960" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c72" value="CacheTools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1175" y="960" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c73" value="Chunking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1270" y="1010" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c73b" value="ByteStream Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="887.5" y="960" width="145" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c73c" value="Directory Size" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="1010" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c73e" value="Cache Config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1035" y="1010" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="n2" value="&lt;b&gt;[设计思路] Hit Tracker缓存评分&lt;/b&gt;&#xa;实时追踪每个Action的缓存命中/未命中详情，&#xa;记录传输时间和字节数统计。生成缓存效能&#xa;评分卡(Scorecard)，帮助用户定位缓存未&#xa;命中的原因并优化构建缓存利用率。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="300" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="g4c" value="应用服务子系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="1535" y="880" width="480" height="275" as="geometry"/>
+                </mxCell>
+                <mxCell id="c74" value="&lt;b&gt;BuildBuddy Server&lt;/b&gt;&#xa;(buildbuddy_server/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1550" y="910" width="165" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c75" value="&lt;b&gt;API Service&lt;/b&gt;&#xa;(enterprise/server/api/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1730" y="910" width="155" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c76" value="Cache Server&#xa;(cache_server/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1550" y="960" width="145" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c77" value="Remote Asset&#xa;(remote_asset/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1705" y="960" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c78" value="Static Server&#xa;(server/static/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1855" y="960" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c79" value="Config Loader&#xa;(server/config/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1550" y="1010" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c80" value="Janitor&#xa;(server/janitor/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1690" y="1010" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c80b" value="LibMain&#xa;(server/libmain/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1820" y="1010" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c80c" value="Environment&#xa;(server/environment/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1550" y="1060" width="135" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c80d" value="RealEnvironment&#xa;(real_environment/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1695" y="1060" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c80e" value="Interfaces&#xa;(server/interfaces/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1845" y="1060" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g5" value="&lt;b&gt;第5层: 企业级远程执行与调度层 (Enterprise RBE)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1190" width="2660" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="g5a" value="远程执行子系统 (remote_execution/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="1220" width="1480" height="345" as="geometry"/>
+                </mxCell>
+                <mxCell id="c81" value="&lt;b&gt;Execution Server&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1250" width="155" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c82" value="&lt;b&gt;Executor 执行器&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="1250" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c83" value="&lt;b&gt;Runner Pool&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="465" y="1250" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c84" value="&lt;b&gt;Operation Publisher&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="1250" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c85" target="c87">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="c85" value="&lt;b&gt;Container Abstraction&lt;/b&gt;&lt;br&gt;容器运行时抽象层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="1415" width="195" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c86" value="&lt;b&gt;Docker&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="1490" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c87" value="&lt;b&gt;Firecracker VM&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="525" y="1490" width="145" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c89" value="&lt;b&gt;OCI Runtime/&lt;/b&gt;&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Podman...&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="845" y="1490" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c90" value="Bare (无隔离)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="1490" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c92" value="&lt;b&gt;Workspace Manager&lt;/b&gt;&lt;br&gt;工作空间管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1360" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c93" value="&lt;b&gt;VFS 虚拟文件系统&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="255" y="1360" width="155" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c94" value="&lt;b&gt;FileCache&lt;/b&gt;&lt;br&gt;本地LRU缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="425" y="1360" width="165" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c95" value="OverlayFS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="1360" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c96" value="Copy-on-Write" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="1360" width="125" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c99b" value="VMExec Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1415" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c99c" value="Executor Platform" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="1415" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="n3" value="&lt;b&gt;[设计思路] 容器运行时抽象层&lt;/b&gt;&#xa;定义统一的CommandContainer接口，通过Provider&#xa;工厂模式适配Docker/Firecracker/Podman/OCI/&#xa;裸机等多种隔离技术。实现执行环境的可插拔，&#xa;支持资源统计、超时控制、镜像管理，解决多&#xa;租户场景下不同安全隔离级别的需求。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="420" width="280" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="n4" value="&lt;b&gt;[设计思路] VFS虚拟文件系统&lt;/b&gt;&#xa;基于FUSE实现延迟加载文件系统，Action输入&#xa;文件按需从CAS拉取而非全量下载。显著减少&#xa;大型构建的I/O等待时间，配合FileCache实现&#xa;文件的本地持久化缓存。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="545" width="280" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="n5" value="&lt;b&gt;[设计思路] FileCache本地文件缓存&lt;/b&gt;&#xa;执行器本地LRU文件缓存，利用硬链接机制&#xa;在不同Action间共享已下载的CAS文件。避免&#xa;重复下载相同输入文件，大幅加速执行器的&#xa;输入准备阶段。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="650" width="280" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="n6" value="&lt;b&gt;[设计思路] Action Merger请求合并&lt;/b&gt;&#xa;对相同digest的Action请求进行合并去重，&#xa;多个相同请求共享同一次执行结果。避免&#xa;重复执行，提高集群资源利用率，减少&#xa;用户等待时间。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="755" width="280" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="g5b" value="任务调度子系统 (scheduling/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="1220" width="500" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="c100" value="&lt;b&gt;Scheduler Server&lt;/b&gt;&#xa;(scheduler_server/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1545" y="1250" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c101" value="&lt;b&gt;Scheduler Client&lt;/b&gt;&#xa;(scheduler_client/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1710" y="1250" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c102" value="&lt;b&gt;Priority Scheduler&lt;/b&gt;&#xa;(priority_task_scheduler/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1545" y="1300" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c103" value="&lt;b&gt;Task Router&lt;/b&gt;&#xa;(task_router/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1720" y="1300" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c104" value="Task Leaser&#xa;(task_leaser/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1865" y="1300" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="c104b" value="Task Size Model&#xa;(tasksize_model/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1865" y="1250" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="n7" value="&lt;b&gt;[设计思路] 优先级任务调度器&lt;/b&gt;&#xa;支持优先级队列、执行器亲和性路由和&#xa;任务租约机制。Task Router根据平台属性&#xa;和执行器负载智能路由任务，Priority&#xa;Scheduler实现多租户环境下的公平调度&#xa;和资源隔离。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="860" width="280" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="g5c" value="缓存代理与路由 (enterprise/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="1400" width="500" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="c105" value="CAS Proxy&#xa;(cas_server_proxy/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1545" y="1430" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c106" value="AC Proxy&#xa;(ac_server_proxy/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="1430" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c107" value="ByteStream Proxy&#xa;(byte_stream_proxy/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1855" y="1430" width="150" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c108" value="Cache Routing&#xa;(routing/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1545" y="1480" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c109" value="&lt;b&gt;Composable Cache&lt;/b&gt;&#xa;(composable_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1690" y="1480" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c110" value="Migration Cache&#xa;(migration_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1860" y="1480" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="n8" value="&lt;b&gt;[设计思路] Composable Cache组合缓存&lt;/b&gt;&#xa;实现可组合的多层缓存架构，支持L1(内存)&#xa;+ L2(磁盘/Pebble) + L3(Redis/GCS/S3)的&#xa;灵活分层策略。通过配置组合不同缓存后端，&#xa;在性能和容量之间取得最优平衡。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="975" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="g7" value="&lt;b&gt;第7层: 缓存与存储抽象层&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1610" width="2660" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="g7a" value="Cache 接口实现 (interfaces.Cache)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="1640" width="1300" height="235" as="geometry"/>
+                </mxCell>
+                <mxCell id="c147" value="&lt;b&gt;Disk Cache&lt;/b&gt;&#xa;(backends/disk_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1670" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c148" value="&lt;b&gt;Memory Cache&lt;/b&gt;&#xa;(backends/memory_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="1670" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c149" value="&lt;b&gt;Redis Cache&lt;/b&gt;&#xa;(backends/redis_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="365" y="1670" width="145" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c150" value="&lt;b&gt;GCS Cache&lt;/b&gt;&#xa;(backends/gcs_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="1670" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c151" value="&lt;b&gt;S3 Cache&lt;/b&gt;&#xa;(backends/s3_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="1670" width="135" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c152" value="&lt;b&gt;Pebble Cache&lt;/b&gt;&#xa;(backends/pebble_cache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="815" y="1670" width="145" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c153" value="Memcache&#xa;(backends/memcache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="1670" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c154" value="MetaCache&#xa;(backends/metacache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1120" y="1670" width="135" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c155" value="&lt;b&gt;Distributed Cache&lt;/b&gt;&#xa;(backends/distributed/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1720" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c156" value="Redis KV Store&#xa;(backends/redis_kvstore/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="215" y="1720" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c157" value="Redis Metrics&#xa;(redis_metrics_collector/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="1720" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c158" value="PubSub&#xa;(backends/pubsub/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="545" y="1720" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c158b" value="Memory KV Store&#xa;(memory_kvstore/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="1720" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c158c" value="Memory Metrics&#xa;(memory_metrics_collector/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="1720" width="155" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="n9" value="&lt;b&gt;[设计思路] 分布式Raft缓存&lt;/b&gt;&#xa;基于Dragonboat Raft协议实现强一致性&#xa;分布式缓存。支持数据分片(Range)、&#xa;多副本(Replica)和范围租约(Range Lease)，&#xa;解决大规模缓存的可扩展性和高可用问题。&#xa;是对第三方Dragonboat的深度二次开发。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="2720" y="1085" width="280" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="g7b" value="Blobstore 接口实现 (interfaces.Blobstore)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="1350" y="1640" width="600" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="c159" value="Disk Blobstore&#xa;(blobstore/disk/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1365" y="1670" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c160" value="GCS Blobstore&#xa;(blobstore/gcs/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1505" y="1670" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c161" value="AWS S3 Blobstore&#xa;(blobstore/aws/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1645" y="1670" width="140" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c162" value="Azure Blobstore&#xa;(blobstore/azure/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1795" y="1670" width="135" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c163" value="ChunkStore&#xa;(backends/chunkstore/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1365" y="1720" width="135" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g7c" value="数据库抽象层 (interfaces.DBHandle)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="1350" y="1770" width="600" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="c164" value="InvocationDB&#xa;(backends/invocationdb/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1365" y="1800" width="145" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c165" value="UserDB&#xa;(backends/userdb/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1520" y="1800" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c166" value="AuthDB&#xa;(backends/authdb/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1650" y="1800" width="120" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c167" value="Tables/Models&#xa;(server/tables/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1780" y="1800" width="130" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g7d" value="Raft 分布式一致性子系统 (enterprise/server/raft/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;align=left;spacingLeft=5;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="1770" width="1300" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="c168" value="Raft Client&#xa;(raft/client/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1800" width="110" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c169" value="Replica&#xa;(raft/replica/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="1800" width="110" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c170" value="Store&#xa;(raft/store/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="1800" width="105" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c171" value="Sender&#xa;(raft/sender/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="405" y="1800" width="105" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c172" value="Txn&#xa;(raft/txn/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="1800" width="95" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c173" value="Range Cache&#xa;(raft/rangecache/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="625" y="1800" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c174" value="Range Lease&#xa;(raft/rangelease/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="1800" width="125" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c175" value="Metadata&#xa;(raft/metadata/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="895" y="1800" width="115" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c176" value="Registry&#xa;(raft/registry/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="1800" width="110" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="c177" value="Bringup&#xa;(raft/bringup/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="1140" y="1800" width="110" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="g8" value="&lt;b&gt;第8层: 第三方基础设施层 (全部为第三方组件)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontSize=13;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1900" width="2660" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="g8a" value="关系数据库" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="1930" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="c178" value="PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="45" y="1945" width="105" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c179" value="MySQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="1945" width="85" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c180" value="SQLite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="255" y="1945" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c181" value="ClickHouse" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="345" y="1945" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c181b" value="GORM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="1945" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="g8b" value="缓存/KV" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="1930" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="c182" value="Redis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="1945" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c183" value="Memcached" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="1945" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c184" value="Pebble DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="775" y="1945" width="85" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c184b" value="Dragonboat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="870" y="1945" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="g8h" value="可观测性" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;verticalAlign=top;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="2000" width="670" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="c198" value="Prometheus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="45" y="2015" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c199" value="OpenTelemetry SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="2015" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c200" value="Jaeger" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="2015" width="75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c200b" value="OpenTelemetry Collector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="2015" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c201" value="Grafana" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="2015" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c202" value="Loki" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="2015" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_exec_1" value="REAPI Execute" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1ba1e2;strokeWidth=2;fontColor=#1ba1e2;" parent="1" source="c2" target="c42" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="305" y="490"/>
+                            <mxPoint x="305" y="490"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_bep_1" value="PublishEventStream" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fa6800;strokeWidth=2;fontColor=#fa6800;" parent="1" source="c2" target="c41" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="320"/>
+                            <mxPoint x="127" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_cache_1" value="FindMissingBlobs/Read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=2;fontColor=#008a00;" parent="1" source="c2" target="c43" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="330" y="280"/>
+                            <mxPoint x="502" y="280"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_ui_1" value="HTTP/REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#aa00ff;strokeWidth=1.5;fontColor=#aa00ff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="c_browser" target="c11" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="640" y="360"/>
+                            <mxPoint x="110" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_gw_bep" value="路由" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fa6800;strokeWidth=1.5;" parent="1" source="c41" target="c55" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_gw_exec" value="路由" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1ba1e2;strokeWidth=1.5;" parent="1" source="c42" target="c81" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="315" y="820"/>
+                            <mxPoint x="100" y="820"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_gw_cas" value="路由至CAS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c43" target="c65" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="502" y="820"/>
+                            <mxPoint x="832" y="820"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_exec_sch" value="合并并入队" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1ba1e2;strokeWidth=1.5;" parent="1" source="c81" target="c100" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="128" y="1310"/>
+                            <mxPoint x="1510" y="1310"/>
+                            <mxPoint x="1510" y="1270"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_sch_redis" value="排队/PubSub" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" source="c100" target="c182" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1620" y="2180"/>
+                            <mxPoint x="620" y="2180"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_exec_node" value="认领任务 (Lease)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1ba1e2;strokeWidth=1.5;" parent="1" source="c82" target="c101" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="295" y="1200"/>
+                            <mxPoint x="1785" y="1200"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_node_pool" value="获取环境" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="c82" target="c83" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_pool_docker" value="启动/复用容器" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="c85" target="c86" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_node_ws" value="准备输入" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="c82" target="c92" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="260" y="1340"/>
+                            <mxPoint x="160" y="1340"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_ws_cas" value="拉取/上传产物" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=2;fontColor=#008a00;" parent="1" source="c92" target="c105" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="145" y="1450"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_cas_comp" value="读写穿透" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c65" target="c109" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="832" y="1180"/>
+                            <mxPoint x="1767" y="1180"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_comp_dist" value="写入一致性哈希集群" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c109" target="c155" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1767" y="1560"/>
+                            <mxPoint x="127" y="1560"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_dist_raft" value="分片元数据共识" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c155" target="c168" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_raft_dragon" value="日志复制" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" source="c170" target="c184b" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="342" y="1870"/>
+                            <mxPoint x="915" y="1870"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_raft_pebble" value="物理落盘" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" source="c170" target="c184" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="342" y="1850"/>
+                            <mxPoint x="817" y="1850"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_bes_db" value="持久化构建历史" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#fa6800;strokeWidth=1.5;" parent="1" source="c55" target="c164" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="127" y="1160"/>
+                            <mxPoint x="1437" y="1160"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_db_mysql" value="写入关系表" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" source="c164" target="c179" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1437" y="1870"/>
+                            <mxPoint x="202" y="1870"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_ui_inv" value="查询历史" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#aa00ff;strokeWidth=1.5;" parent="1" source="c12" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="382" y="1190"/>
+                            <mxPoint x="1280" y="1190"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_sch_router" value="决策" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f57f17;strokeWidth=1.5;" parent="1" source="c100" target="c103" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sch_prio" value="入队" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#f57f17;strokeWidth=1.5;" parent="1" source="c100" target="c102" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_exec_pub" value="发布状态" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1ba1e2;strokeWidth=1.5;" parent="1" source="c81" target="c84" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="127" y="1210"/>
+                            <mxPoint x="760" y="1210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_exec_ws" value="管理沙盒" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d84315;strokeWidth=1.5;" parent="1" source="c82" target="c92" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ws_fc" value="硬链接复用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d84315;strokeWidth=1.5;" parent="1" source="c92" target="c94" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="1350"/>
+                            <mxPoint x="508" y="1350"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_ws_ofs" value="挂载" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d84315;strokeWidth=1.5;" parent="1" source="c92" target="c95" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="145" y="1410"/>
+                            <mxPoint x="660" y="1410"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_pool_abs" value="生命周期控制" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d84315;strokeWidth=1.5;" parent="1" source="c83" target="c85" edge="1">
+                    <mxGeometry x="-0.36" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="1340"/>
+                            <mxPoint x="530" y="1340"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_mig_disk" value="源端访问" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;dashed=1;" parent="1" source="c110" target="c147" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1930" y="1600"/>
+                            <mxPoint x="120" y="1600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_mig_pebble" value="双写目标" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;dashed=1;" parent="1" source="c110" target="c152" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1930" y="1590"/>
+                            <mxPoint x="887" y="1590"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_acsvr_proxy" value="委托查询" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c66" target="c106" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1020" y="1170"/>
+                            <mxPoint x="1770" y="1170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_cas_chunk" value="分块处理" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;" parent="1" source="c65" target="c73" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="833" y="1080"/>
+                            <mxPoint x="1330" y="1080"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_chunk_dist" value="持久化碎片" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#008a00;strokeWidth=1.5;dashed=1;" parent="1" source="c73" target="c155" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1370" y="1550"/>
+                            <mxPoint x="127" y="1550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_tel_prom" value="暴露指标" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" target="c198" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1260" y="1890"/>
+                            <mxPoint x="92" y="1890"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_auth_db" value="验证" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;" parent="1" target="c166" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="125" y="1810"/>
+                            <mxPoint x="1710" y="1810"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;OHOS 源码仓库&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="-560" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Ninja 构建工具&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-560" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;项目配置&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="-560" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=none;html=1;" edge="1" parent="1" source="10" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;b&gt;通信协议&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-480" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;b&gt;远程执行服务器&lt;br&gt;server&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-400" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;font&gt;CAS/AC Server&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-440" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;b&gt;缓存迁移&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-380" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;font&gt;HitTracker&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-260" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;b&gt;组合缓存&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-320" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;b&gt;缓存引擎&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="-260" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;dashed=1;" edge="1" parent="1" source="21" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;b&gt;任务队列&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="-330" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;b&gt;状态发布器&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="-120" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;b&gt;Runner 池&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-200" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;b&gt;工作区管理&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-200" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;b&gt;容器隔离执行&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="-200" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;b&gt;执行器节点&lt;/b&gt;&lt;div&gt;&lt;b&gt;executor&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="-200" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="27" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;b&gt;Action 合并&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="-330" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;b&gt;故障处理&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="-400" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;b&gt;任务调度&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-330" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;b&gt;状态机&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="-120" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&lt;b&gt;Raft 管理&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="-40" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="&lt;b&gt;构建事件服务&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="-120" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;数据库&lt;/b&gt;&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=4.615412785456677;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-120" width="120" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,91 @@
+<mxfile host="65bd71144e">
+    <diagram id="EPZkQh8et6JoUlLgvra0" name="Page-1">
+        <mxGraphModel dx="1258" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="canvas" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry y="40" width="840" height="720" as="geometry"/>
+                </mxCell>
+                <mxCell id="outer_border" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="110" width="780" height="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="title" value="分布式编译系统五大功能模块架构图" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="237.5" y="110" width="365" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_client_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=15;absoluteArcSize=0;arcSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="280" width="540" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_client_label" value="Ninja 构建客户端模块" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="280" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_client_1" value="任务解析" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="300" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_client_2" value="远程执行判定" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="300" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_client_3" value="混合调度" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="300" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_adapt_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=15;absoluteArcSize=0;arcSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="170" width="540" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_adapt_label" value="OHOS 编译适配模块" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="170" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_adapt_1" value="编译工具链适配" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="190" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_adapt_2" value="环境兼容" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="190" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_server_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=15;absoluteArcSize=0;arcSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="380" width="540" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_server_label" value="服务端" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="380" width="120" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_cache_box" value="远程缓存模块" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontStyle=1;verticalAlign=top;spacingTop=5;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="400" width="230" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_cache_1" value="内容分块去重" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="285" y="485" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_cache_2" value="高吞吐存取" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="285" y="440" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_exec_box" value="远程执行模块" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontStyle=1;verticalAlign=top;spacingTop=5;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="400" width="230" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_exec_1" value="任务合并与路由" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="535" y="440" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_exec_2" value="容器沙盒隔离" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="535" y="485" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_sys_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=15;absoluteArcSize=0;arcSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="580" width="540" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="mod_sys_label" value="系统管理模块" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="580" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_sys_1" value="运维监控" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="600" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="item_sys_2" value="安全与权限管理" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="600" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="qcjzQe9_w8c3P79llvpY-19" value="执行环境复用" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="485" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="qcjzQe9_w8c3P79llvpY-20" value="数据一致性" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="485" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="qcjzQe9_w8c3P79llvpY-21" value="编译过程适配" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="190" width="140" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

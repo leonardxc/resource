@@ -1,0 +1,370 @@
+<mxfile host="65bd71144e">
+    <diagram id="hybrid_scheduling_arch" name="Hybrid Scheduling Architecture">
+        <mxGraphModel dx="3326" dy="2431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1400" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;图 X：双池混合调度逻辑分层架构图&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1_bg" value="" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="920" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1_dag" value="&lt;b&gt;Build Graph (DAG) 解析&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Node (目标) -&gt; Edge (规则) -&gt; Node (依赖)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l1_bg" vertex="1">
+                    <mxGeometry x="60" y="30" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1_plan" value="&lt;b&gt;Plan (全局调度器)&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align: left; padding-left: 10px; font-size: 11px;&quot;&gt;• EdgePriorityQueue ready_&lt;br&gt;  ├── Edge A (critical_path_depth)&lt;br&gt;  └── Edge B (critical_path_depth)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l1_bg" vertex="1">
+                    <mxGeometry x="380" y="20" width="260" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1_findwork" value="&lt;b&gt;FindWork()&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;获取最高优先级就绪任务&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l1_bg" vertex="1">
+                    <mxGeometry x="720" y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l1_1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l1_bg" source="l1_dag" target="l1_plan" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l1_2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l1_bg" source="l1_plan" target="l1_findwork" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); line-height: 100%;&quot;&gt;调度与核心引擎层&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacing=0;spacingTop=0;" vertex="1" parent="l1_bg">
+                    <mxGeometry x="10" y="5" width="20" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="l2_bg" value="&lt;b&gt;任务分类与路由层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="220" width="920" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="l2_classifier" value="&lt;b&gt;«自研» 任务分类器&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;RemoteSpawn::CanExecuteRemotelly()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l2_bg" vertex="1">
+                    <mxGeometry x="60" y="45" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l2_rules" value="&lt;b&gt;分类规则引擎 (优先级匹配)&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align: left; padding-left: 10px; font-size: 11px;&quot;&gt;• 优先级1: local_only_rules (link, stamp) -&gt; &lt;b&gt;LOCAL&lt;/b&gt;&lt;br&gt;• 优先级2: local_only_fuzzy (包含 ld) -&gt; &lt;b&gt;LOCAL&lt;/b&gt;&lt;br&gt;• 优先级3: 编译命令 (clang -c) -&gt; &lt;b&gt;REMOTE&lt;/b&gt;&lt;br&gt;• 默认规则: 优先远程执行 -&gt; &lt;b&gt;REMOTE&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l2_bg" vertex="1">
+                    <mxGeometry x="380" y="25" width="500" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l2_1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l2_bg" source="l2_classifier" target="l2_rules" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3_bg" value="&lt;b&gt;调度与并发控制层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="390" width="920" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3_runner" value="&lt;b&gt;«自研» CloudCommandRunner&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;统一双池调度接口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=2;fontFamily=Helvetica;" parent="l3_bg" vertex="1">
+                    <mxGeometry x="60" y="35" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3_api1" value="&lt;b&gt;CanRunMore()&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;capacity = local_cap + remote_cap&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" parent="l3_bg" vertex="1">
+                    <mxGeometry x="380" y="15" width="220" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3_api2" value="&lt;b&gt;StartCommand(edge)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;路由至 remote_procs_ 或 local_procs_&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" parent="l3_bg" vertex="1">
+                    <mxGeometry x="380" y="70" width="220" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3_api3" value="&lt;b&gt;WaitForCommand(result)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;监听双池的完成事件并收集结果&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" parent="l3_bg" vertex="1">
+                    <mxGeometry x="660" y="35" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l3_1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" parent="l3_bg" source="l3_runner" target="l3_api1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l3_2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.75;entryX=0;entryY=0.5;" parent="l3_bg" source="l3_runner" target="l3_api2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l3_3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l3_bg" source="l3_api2" target="l3_api3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_bg" value="&lt;b&gt;资源池执行层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="540" width="920" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_local_bg" value="&lt;b&gt;本地执行池 (Local Pool)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;并发上限: N_local = CPU核数&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=10;" parent="l4_bg" vertex="1">
+                    <mxGeometry x="60" y="20" width="380" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_subproc" value="&lt;b&gt;SubprocessSet&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(本地进程管理)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" parent="l4_local_bg" vertex="1">
+                    <mxGeometry x="20" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_lqueue" value="&lt;b&gt;等待队列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;local_queue_&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" parent="l4_local_bg" vertex="1">
+                    <mxGeometry x="220" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_ltask" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;任务类型: 链接任务 / 代码生成 / 强依赖工具&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Helvetica;" parent="l4_local_bg" vertex="1">
+                    <mxGeometry x="20" y="120" width="340" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_remote_bg" value="&lt;b&gt;远程执行池 (Remote Pool)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;并发上限: N_remote = N_local × 3&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=10;" parent="l4_bg" vertex="1">
+                    <mxGeometry x="500" y="20" width="380" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_remproc" value="&lt;b&gt;RemoteProcessSet&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(远程任务并发管理)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" parent="l4_remote_bg" vertex="1">
+                    <mxGeometry x="20" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_tpool" value="&lt;b&gt;异步线程池&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;thread_pool_&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" parent="l4_remote_bg" vertex="1">
+                    <mxGeometry x="220" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4_rtask" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;任务类型: C/C++ 编译任务 / CPU密集型操作&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Helvetica;" parent="l4_remote_bg" vertex="1">
+                    <mxGeometry x="20" y="120" width="340" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_bg" value="&lt;b&gt;通信协议层&lt;br&gt;(REAPI Bridge)&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="760" width="920" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_exec_ctx" value="&lt;b&gt;ExecutionContext (执行上下文状态机)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=5;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="60" y="20" width="820" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_s1" value="1. BuildAction&lt;br&gt;(构造协议)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="80" y="50" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_s2" value="2. CASClient&lt;br&gt;(上传输入Blob)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="230" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_s3" value="3. RemoteClient&lt;br&gt;(下发执行)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="390" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_s4" value="4. CASClient&lt;br&gt;(下载输出产物)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="550" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5_s5" value="5. 写入本地 FS&lt;br&gt;(回填工作区)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" parent="l5_bg" vertex="1">
+                    <mxGeometry x="710" y="50" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l5_1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l5_bg" source="l5_s1" target="l5_s2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l5_2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l5_bg" source="l5_s2" target="l5_s3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l5_3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l5_bg" source="l5_s3" target="l5_s4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l5_4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="l5_bg" source="l5_s4" target="l5_s5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6_bg" value="&lt;b&gt;远程服务层&lt;br&gt;(REAPI 集群)&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="920" width="920" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6_ac" value="&lt;b&gt;ActionCache Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(缓存命中判定与结果获取)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l6_bg" vertex="1">
+                    <mxGeometry x="60" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6_cas" value="&lt;b&gt;CAS Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(内容寻址文件存储集群)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l6_bg" vertex="1">
+                    <mxGeometry x="270" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6_exec" value="&lt;b&gt;Execution Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(任务队列调度与执行管理)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l6_bg" vertex="1">
+                    <mxGeometry x="480" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6_ops" value="&lt;b&gt;Operations Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(异步状态轮询与长连接追踪)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l6_bg" vertex="1">
+                    <mxGeometry x="700" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7_bg" value="&lt;b&gt;物理执行&lt;br&gt;节点层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1060" width="920" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7_ex1" value="&lt;b&gt;Executor Node 1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c a.cc -&gt; a.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l7_bg" vertex="1">
+                    <mxGeometry x="60" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7_ex2" value="&lt;b&gt;Executor Node 2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c b.cc -&gt; b.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l7_bg" vertex="1">
+                    <mxGeometry x="290" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7_ex3" value="&lt;b&gt;Executor Node 3&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c c.cc -&gt; c.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" parent="l7_bg" vertex="1">
+                    <mxGeometry x="520" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7_exn" value="&lt;b&gt;Executor Node N&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;... (横向水平扩展)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;strokeWidth=1.5;fontFamily=Helvetica;dashed=1;" parent="l7_bg" vertex="1">
+                    <mxGeometry x="750" y="25" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_1_2" value="就绪任务 (Edge)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;" parent="1" source="l1_plan" target="l2_rules" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="510" y="200"/>
+                            <mxPoint x="510" y="200"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr_2_3" value="分类结果判决 (LOCAL / REMOTE)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;" parent="1" source="l2_rules" target="l3_api2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_3_4l" value="路由至本地" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" parent="1" source="l3_api2" target="l4_local_bg" edge="1">
+                    <mxGeometry x="-0.4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr_3_4r" value="路由至远程队列" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" parent="1" source="l3_api2" target="l4_remote_bg" edge="1">
+                    <mxGeometry x="-0.5" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr_4_5" value="驱动底层传输" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="l4_remote_bg" target="l5_exec_ctx" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_5_6" value="gRPC 跨网 RPC 调用 (REAPI v2 协议)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="l5_exec_ctx" target="l6_bg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_6_7" value="调度器向执行沙箱派发指令" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.63;exitY=1;entryX=0.5;entryY=0;" parent="1" source="l6_bg" target="l7_bg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="&lt;b&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;图 X：双池混合调度逻辑分层架构图&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="1400" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1460" width="920" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="&lt;b&gt;Build Graph (DAG) 解析&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Node (目标) -&gt; Edge (规则) -&gt; Node (依赖)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="61">
+                    <mxGeometry x="60" y="30" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="&lt;b&gt;Plan (全局调度器)&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align: left; padding-left: 10px; font-size: 11px;&quot;&gt;构建edge优先队列&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="61">
+                    <mxGeometry x="380" y="20" width="260" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="&lt;b&gt;FindWork()&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;获取最高优先级就绪任务&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="61">
+                    <mxGeometry x="720" y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="61" source="62" target="63">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="61" source="63" target="64">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); line-height: 100%;&quot;&gt;调度与核心引擎层&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;spacing=0;spacingTop=0;" vertex="1" parent="61">
+                    <mxGeometry x="10" y="5" width="20" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="&lt;b&gt;任务分类与路由层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1600" width="920" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="&lt;b&gt;«自研» 任务分类器&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;RemoteSpawn::CanExecuteRemotelly()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="68">
+                    <mxGeometry x="60" y="45" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="&lt;b&gt;分类规则引擎 (优先级匹配)&lt;/b&gt;&lt;br&gt;&lt;div style=&quot;text-align: left; padding-left: 10px; font-size: 11px;&quot;&gt;• 优先级1: local_only_rules (link, stamp) -&gt; &lt;b&gt;LOCAL&lt;/b&gt;&lt;br&gt;• 优先级2: local_only_fuzzy (包含 ld) -&gt; &lt;b&gt;LOCAL&lt;/b&gt;&lt;br&gt;• 优先级3: 编译命令 (clang -c) -&gt; &lt;b&gt;REMOTE&lt;/b&gt;&lt;br&gt;• 默认规则: 优先远程执行 -&gt; &lt;b&gt;REMOTE&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="68">
+                    <mxGeometry x="380" y="25" width="500" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="68" source="69" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="&lt;b&gt;调度与并发控制层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1770" width="920" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="&lt;b&gt;«自研» CloudCommandRunner&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;统一双池调度接口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=2;fontFamily=Helvetica;" vertex="1" parent="72">
+                    <mxGeometry x="60" y="35" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="&lt;b&gt;CanRunMore()&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;capacity = local_cap + remote_cap&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="72">
+                    <mxGeometry x="380" y="15" width="220" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="&lt;b&gt;StartCommand(edge)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;路由至 remote_procs_ 或 local_procs_&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="72">
+                    <mxGeometry x="380" y="70" width="220" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="&lt;b&gt;WaitForCommand(result)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;监听双池的完成事件并收集结果&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="72">
+                    <mxGeometry x="660" y="35" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" edge="1" parent="72" source="73" target="74">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.75;entryX=0;entryY=0.5;" edge="1" parent="72" source="73" target="75">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="72" source="75" target="76">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="&lt;b&gt;资源池执行层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1920" width="920" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="&lt;b&gt;本地执行池 (Local Pool)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;并发上限: N_local = CPU核数&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="80">
+                    <mxGeometry x="60" y="20" width="380" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="&lt;b&gt;SubprocessSet&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(本地进程管理)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" vertex="1" parent="81">
+                    <mxGeometry x="20" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="&lt;b&gt;等待队列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;local_queue_&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" vertex="1" parent="81">
+                    <mxGeometry x="220" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;任务类型: 链接任务 / 代码生成 / 强依赖工具&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Helvetica;" vertex="1" parent="81">
+                    <mxGeometry x="20" y="120" width="340" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="&lt;b&gt;远程执行池 (Remote Pool)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;并发上限: N_remote = N_local × 3&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="80">
+                    <mxGeometry x="500" y="20" width="380" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="&lt;b&gt;RemoteProcessSet&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(远程任务并发管理)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" vertex="1" parent="85">
+                    <mxGeometry x="20" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="&lt;b&gt;异步线程池&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;thread_pool_&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;fontFamily=Helvetica;" vertex="1" parent="85">
+                    <mxGeometry x="220" y="50" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;任务类型: C/C++ 编译任务 / CPU密集型操作&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontFamily=Helvetica;" vertex="1" parent="85">
+                    <mxGeometry x="20" y="120" width="340" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="&lt;b&gt;通信协议层&lt;br&gt;(REAPI Bridge)&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="2140" width="920" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="&lt;b&gt;ExecutionContext (执行上下文状态机)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;align=center;verticalAlign=top;spacingTop=5;" vertex="1" parent="89">
+                    <mxGeometry x="60" y="20" width="820" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="1. BuildAction&lt;br&gt;(构造协议)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="89">
+                    <mxGeometry x="80" y="50" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="2. CASClient&lt;br&gt;(上传输入Blob)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="89">
+                    <mxGeometry x="230" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="3. RemoteClient&lt;br&gt;(下发执行)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="89">
+                    <mxGeometry x="390" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="4. CASClient&lt;br&gt;(下载输出产物)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="89">
+                    <mxGeometry x="550" y="50" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="5. 写入本地 FS&lt;br&gt;(回填工作区)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="89">
+                    <mxGeometry x="710" y="50" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="89" source="91" target="92">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="89" source="92" target="93">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="89" source="93" target="94">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="89" source="94" target="95">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="&lt;b&gt;远程服务层&lt;br&gt;(REAPI 集群)&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="2300" width="920" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="&lt;b&gt;ActionCache Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(缓存命中判定与结果获取)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="100">
+                    <mxGeometry x="60" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="&lt;b&gt;CAS Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(内容寻址文件存储集群)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="100">
+                    <mxGeometry x="270" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="&lt;b&gt;Execution Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(任务队列调度与执行管理)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="100">
+                    <mxGeometry x="480" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="&lt;b&gt;Operations Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;(异步状态轮询与长连接追踪)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="100">
+                    <mxGeometry x="700" y="20" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="&lt;b&gt;物理执行&lt;br&gt;节点层&lt;/b&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=1.5;startSize=40;collapsible=0;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="2440" width="920" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="&lt;b&gt;Executor Node 1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c a.cc -&gt; a.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="105">
+                    <mxGeometry x="60" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="&lt;b&gt;Executor Node 2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c b.cc -&gt; b.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="105">
+                    <mxGeometry x="290" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="&lt;b&gt;Executor Node 3&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;clang -c c.cc -&gt; c.o&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontFamily=Helvetica;" vertex="1" parent="105">
+                    <mxGeometry x="520" y="25" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="&lt;b&gt;Executor Node N&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;... (横向水平扩展)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;strokeWidth=1.5;fontFamily=Helvetica;dashed=1;" vertex="1" parent="105">
+                    <mxGeometry x="750" y="25" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="就绪任务 (Edge)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="63" target="70">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="510" y="1580"/>
+                            <mxPoint x="510" y="1580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="111" value="分类结果判决 (LOCAL / REMOTE)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;" edge="1" parent="1" source="70" target="75">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="路由至本地" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="75" target="81">
+                    <mxGeometry x="-0.4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="113" value="路由至远程队列" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="75" target="85">
+                    <mxGeometry x="-0.5" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="114" value="驱动底层传输" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="85" target="90">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="gRPC 跨网 RPC 调用 (REAPI v2 协议)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="90" target="100">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="调度器向执行沙箱派发指令" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontFamily=Helvetica;labelBackgroundColor=#ffffff;exitX=0.63;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="100" target="105">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
